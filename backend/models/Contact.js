@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const contactSchema = new Schema({
   name: String,
   age: Number,
-  favoriteFoods: String,
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+  },
 });
 module.exports = mongoose.model("Contact", contactSchema);

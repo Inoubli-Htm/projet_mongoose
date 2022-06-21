@@ -18,7 +18,7 @@ router.get("/allContacts", getAllContacts);
 //Delete contacts
 // method delete
 // req.params
-router.delete("/deleteContacts/:id", deleteContact);
+router.delete("/deleteContact/:id", deleteContact);
 
 // update contact
 // methode put

@@ -1,12 +1,13 @@
 const Contact = require("../models/Contact");
 
 exports.addContact = async (req, res) => {
-  const { name, age, favoriteFoods } = req.body;
+  let { name, age, email } = req.body;
+  age = Number(age);
   try {
     const contact = new Contact({
       name,
       age,
-      favoriteFoods,
+      email,
     });
     await contact.save();
     res.status(201).send({ msg: "contact saved", contact });
