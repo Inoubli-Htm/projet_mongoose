@@ -44,7 +44,9 @@ exports.updateContact = async (req, res) => {
       { new: true }
     );
     res.status(200).send({ msg: "contact updated", updateContact });
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).send("server error");
+  }
 };
 
 exports.getOneContact = async (req, res) => {

@@ -1,8 +1,17 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { toggleFalse } from "../redux/actions/contactActions";
 
 function Home() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleToggleFalse = () => {
+    dispatch(toggleFalse());
+    navigate("/addEdit");
+  };
+
   return (
     <div
       style={{
@@ -17,9 +26,10 @@ function Home() {
         {" "}
         <Button variant="primary">Contacts</Button>
       </Link>
-      <Link to="/addEdit">
-        <Button variant="primary">Add Contacts</Button>
-      </Link>
+
+      <Button variant="primary" onClick={handleToggleFalse}>
+        Add Contacts
+      </Button>
     </div>
   );
 }
